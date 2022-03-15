@@ -9,5 +9,5 @@ Students are expected to:
 Student Info
 =========================
 
-* Student Name: *Your Name*
-* Student ID: *Your id*
+* Student Name: Trần VIệt Hoàng
+* Student ID: Bi11-101
