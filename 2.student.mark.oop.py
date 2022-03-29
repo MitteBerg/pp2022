@@ -1,29 +1,77 @@
 class Student:
-    def __init__(self, name , id , dob ):
-        self.name = name
-        self.id = id
-        self.dob = dob
+    def __init__(self):  
+        self.sname = input('enter student name:')
+        self.sid = input('enter student rollno:')
+        self.dob = input('enter student dob:')
+        self.count=input('enter number of student:')
+    def name(self):  
+        return self.sname
         
-    def infor(self):
-        print("Student's name : {}".format(self.name))
-        print("Student's  id : {}".format(self.id))
-        print("Student's day of birth : {}".format(self.dob))
+    def id(self):  
+        return self.id
+    
+    def birthday(self):  
+        return self.dob
+    def number(self): 
+        return self.count
         
     
 class Course:
-    def __init__(self, course_name,course_id):
-        self.course_name = course_name
-        self.course_id = course_id
-        
-    def infor(self):
-        print("Course id:{}".format(self.course_name))
-        print("Course_id:{}".format(self.course_id))
+    def __init__(self):
+        self.course_name =input('enter course name:')
+        self.course_id = input('enter course id:')
+        self.coursenum = input('enter number of course:')
+    def coursename(self):  
+        return self.course_name
+    def courseid(self):  
+        return self.course_id
+    def numcourse(self):
+        return self.coursenum
     
+
+class Mark:
+    def __init__(self):
+        self.__mark = input("enter mark")
+    
+
+numStudents = Student()
+numStudents.number()
+Studentlist = []
+for i in range (numStudents):
+    studentname, studentid, dob = Student()
+    studentname.name()
+    studentid.id()
+    dob.birthday()
+    Studentlist.append ((studentname, studentid, dob))
+
+
+
+
+
+
+numCourse = Course()
+numCourse.numcourse()
+Courselist = []
+for i in range (numCourse):
+    courseid, coursename= Course()
+    courseid.courseid()
+    coursename.coursename()
+    
+    Courselist.append ((courseid,coursename))
+
+
+
+
+
+
+
+
 #Polymorphism
 stlist= [Student(),Course()]
 for i in stlist:
-    i.infor()
+    i.name()
+    i.id()
+    i.dob()
 
-a1 = Student()
-a1.student_infor()    
     
+
