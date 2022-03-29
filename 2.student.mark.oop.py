@@ -60,18 +60,7 @@ for i in range (numCourse):
     Courselist.append ((courseid,coursename))
 
 
-
-
-
-
-
-
-#Polymorphism
-stlist= [Student(),Course()]
-for i in stlist:
-    i.name()
-    i.id()
-    i.dob()
+st1=Student()
 
     
 
