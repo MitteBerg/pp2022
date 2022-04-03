@@ -1,46 +1,89 @@
-numStundent = int (input ("Number of students: "))
-studentlist = []
-for i in range (numStundent):
-    studentid = input ("Student id: ")
-    studentname = input ("Student name: ")
-    studentbirth = input ("Student's date of birth: ")
-    studentlist.append (( studentid, studentname, studentbirth))
+def inputStudentCount():
+    count = int(input("Number of students:"))
+    return count
 
-coursnum = int (input ("Number of courses: "))
-courselist = []
-for i in range (coursnum):
-    coursid = input ("Course id: ")
-    coursname = input ("Course name: ")
-    courselist.append ((coursid,coursname))
+def inputStudentInfo(studentCount):
+    #returns a list students , with info from keyboard
+    students = []
+    # inout infoL  id , name , dob
+    for i in range(0, studentCount):
+        id = input("Student ID: ")
+        name = input("Student name: ")
+        dob = input("Student DoB: ")
+        student = {
+            "id": id,
+            "name": name,
+            "dob":dob,
+            "marks":{}
+        }
+        students.append(student)
+    return students
     
-tupl = {}    
-n = int (input ("Student-course marks ! "))
-for i in range (n):
-    while True:
-        studentid = input ("Student id: ")
-        coursid = input ("Course id: ")
-        if studentid not in [student [0] for student in studentlist]:
-            print ("Wrong student id")
-            continue 
-        if coursid not in [course [0] for course in courselist]:
-            print ("Wrong course id")
-            continue 
-        break
-    marks = int (input ("Marks: "))
-    if coursid in tupl:
-        tupl [coursid].append ((studentid, marks))
-    else:
-        tupl [coursid] = [(studentid, marks)]
+def inputCourseCount():
+    count = int(input("Number of courses:"))
+    return count
+
+def inputCourseInfo(courseCount):
+    courses = []
+    # inout infoL  id , name , dob
+    for i in range(0, courseCount):
+        id = input("course ID: ")
+        name = input("course name: ")
         
+        course = {
+            "id": id,
+            "name": name
+            
+        }
+        courses.append(course)
+    return courses
 
-for a in studentlist:
-    print (f"Student id: {a[0]} Name: {a[1]} Date of birth: {a[2]}")
+def selectCourse(courses):
+    listCourses(courses)
+    courseid = input("Enter course id you want: ")
+    return courseid
 
-
-for b in courselist:
-    print (f"Course id: {b[0]} Name: {b[1]}")
+def inputMark(courseid, students):
+    print(f"Enter marks of the course {courseid} for students: ")
+    for student in students:
+        mark = float(input(f"-Student {student['name']}:"))
+        student["marks"][courseid]= mark
     
-coursid = input ("\nEnter course! ")
-if coursid in tupl:
-    for tups in tupl [coursid]:
-        print (f"Student {tups[0]} got {tups [1]} marks")
+
+def listCourses(courses):
+    print("\n All courses list")
+    for course in courses:
+        print(f"{course['id']: <10} {course['name']: <20} ")
+    pass
+
+def listStudents(students):
+    print("\n All student list")
+    for student in students:
+        print(f"{student['id']: <10} {student['name']: <20} {student['dob']: <15}")
+
+def showMark(courseid, students):
+    print("\n All marks for the course {courseid}")
+    for student in students:
+        print(f"{student['name']: <20} {student['mark'][courseid]}")
+
+#enter student count and information
+studentCount = inputStudentCount()
+students = inputStudentInfo(studentCount)
+listStudents(students)
+
+#enter course count and information
+courseCount = inputCourseCount()
+courses = inputCourseInfo(courseCount)
+listCourses(courses)
+
+#select course, input mark for students in the given course
+courseid = selectCourse(courses)
+inputMark(courseid, students)
+
+
+
+
+# show marks for a given course
+
+courseid = selectCourse(courses)
+showMark(courseid, students)
