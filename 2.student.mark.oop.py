@@ -1,21 +1,21 @@
 class Student:
     def __init__(self):  
         self.sname = input('enter student name:')
-        self.sid = input('enter student rollno:')
+        self.sid = input('enter student id:')
         self.dob = input('enter student dob:')
         self.count=input('enter number of student:')
-    def inputStudentCount():
-        count = int(input("Number of students:"))
-        return count
+    def StudentCount(self):
+        
+        return self.count
 
-    def inputStudentInfo(studentCount):
+    def inputStudentInfo(self,studentCount):
     #returns a list students , with info from keyboard
         students = []
     # inout infoL  id , name , dob
         for i in range(0, studentCount):
-            id = input("Student ID: ")
-            name = input("Student name: ")
-            dob = input("Student DoB: ")
+            id = self.sid
+            name = self.sname
+            dob = self.dob
             student = {
             "id": id,
             "name": name,
@@ -30,16 +30,16 @@ class Course:
         self.course_name =input('enter course name:')
         self.course_id = input('enter course id:')
         self.coursenum = input('enter number of course:')
-    def inputCourseCount():
-        count = int(input("Number of courses:"))
-        return count
+    def CourseCount(self):
+        
+        return self.coursenum
 
-    def inputCourseInfo(courseCount):
+    def inputCourseInfo(self):
       courses = []
     # inout infoL  id , name , dob
       for i in range(0, courseCount):
-        id = input("course ID: ")
-        name = input("course name: ")
+        id = self.course_id
+        name = self.course_name
         
         course = {
             "id": id,
@@ -54,6 +54,12 @@ class Course:
 class Mark(Student,Course):
     def __init__(self,student,course):
         self.__mark = input("enter mark")
+        
+    def showmark():
+        pass
+    
+    def GPA():
+        pass
     
     
 
