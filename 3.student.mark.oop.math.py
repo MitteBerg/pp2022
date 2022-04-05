@@ -3,6 +3,7 @@ import numpy as np
 import curses 
 
 
+
 studentlist = []
 courselist = []
 marklist= []
@@ -21,7 +22,6 @@ class Student:
         self.dob = input('enter student dob:')
         self.count=input('enter number of student:')
     def StudentCount(self):
-        
         return self.count
 
     def inputStudentInfo(self,studentCount):
@@ -78,17 +78,24 @@ class Course:
 
     
 
-class Mark(Student,Course):
-    def __init__(self,stu,cou):
-        self.__mark = input("enter mark")
-        self.students = stu.students
-        self.courseid = cou.courseid
-        
-    def showMark():
-        print("\n All marks for the course {courseid}")
-    #for student in students:
-        #print(f"{student['name']: <20} {student['mark'][courseid]}")
-        pass
+class Marks:
+    def __init__(self,sid,course_id,mark,Gpa=0):
+        self.studentid = sid
+        self.course_id = course_id
+        self.mark = mark
+        self.Gpa=Gpa
+    
+    def calculate_average():
+        sum_credits = 0
+        sum_marks = 0
+        for course_id, marks in marklist:
+          for course in courselist:
+            if course_id == courses[0]:
+                sum_credits += int(courses[2])
+                sum_marks += marks * int(courses[2])
+        average = sum_marks / sum_credits
+        average = np.round(average, 1)
+        return average
     
     
     
