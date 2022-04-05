@@ -4,11 +4,28 @@ class Student:
         self.sid = input('enter student id:')
         self.dob = input('enter student dob:')
         self.count=input('enter number of student:')
+        self.marks = []
     def StudentCount(self):
         
         return self.count
+    
+    def studentId(self):
+        return self.sid
+    
+    def studentName(self):
+        return self.sname
+    
+    def studentDob(self):
+        return self.dob
 
-    def inputStudentInfo(self,studentCount):
+    def Marks(self):
+        return self.marks
+
+    def addMark(self, course_id, mark):
+        self.__marks.append((course_id, mark))
+
+
+    def StudentInfo(self,studentCount):
     #returns a list students , with info from keyboard
         students = []
     
@@ -27,7 +44,7 @@ class Student:
     
     def listStudents(students):
         print("\n All student list")
-    for student in inputStudentInfo.students:
+    for student in StudentInfo.students:
         print(f"{student['id']: <10} {student['name']: <20} {student['dob']: <15}")
     
 class Course:
@@ -38,6 +55,12 @@ class Course:
     def CourseCount(self):
         
         return self.coursenum
+    
+    def get_id(self):
+        return self.course_id
+    
+    def get_name(self):
+        return self.course_name
 
     def inputCourseInfo(self):
       courses = []
