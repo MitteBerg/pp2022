@@ -13,4 +13,4 @@ def listCourses(courses):
         print("\n All courses list")
     for course in inputCourseInfo.courses:
         print(f"{course['id']: <10} {course['name']: <20} ")
-    pass
+    
