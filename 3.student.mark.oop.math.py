@@ -1,6 +1,5 @@
 import math
 import numpy as np
-import curses 
 
 
 
@@ -110,14 +109,3 @@ courseCount = Course()
 courses = Course(courseCount)
 courses.inputCourseInfo
 
-#select course, input mark for students in the given course
-#courseid = selectCourse(courses)
-#inputMark(courseid, students)
-
-
-
-
-# show marks for a given course
-
-#courseid = selectCourse(courses)
-#showMark(courseid, students)
